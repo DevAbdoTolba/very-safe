@@ -5,7 +5,6 @@ const triesTag = document.getElementById("tries");
 
 console.log(guesses);
 
-
 triesTag.innerText = tries > 0 ? tries : "you lost";
 
 const handleInput = (e) => {
@@ -18,8 +17,8 @@ const handleInput = (e) => {
 const checkNumber = () => {
   const input = document.querySelector("#input").value;
   if (input === digit) {
-    // document.querySelector("#tries").innerText = "Correct!"; 
-    wonFun()
+    // document.querySelector("#tries").innerText = "Correct!";
+    wonFun();
   } else {
     let digitFound = 0;
     let correctPosition = 0;
