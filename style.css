@@ -1,25 +1,76 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  text-align: center;
 }
 
-.container {
-    display: flex;
-    gap: 10px;
+::selection {
+  background-color: #469e51;
+  color: #fff;
 }
 
-.digit-input {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f0f0f0;
-    box-shadow: 2px 2px 5px #ccc, -2px -2px 5px #fff;
-    outline: none;
+.margin {
+  height: 5vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  gap: 5vh;
+  background-color: #f0f0f0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 80vw;
+  height: 40px;
+  font-size: 18px;
+  letter-spacing: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px 8px 0 0;
+  background-color: #f0f0f0;
+  box-shadow: 2px 2px 5px #ccc, -2px -2px 5px #fff;
+  outline: none;
+  z-index: 100;
+}
+
+.button {
+  width: 80vw;
+  height: 40px;
+  font-size: 18px;
+  letter-spacing: 10px;
+  border: 1px solid #ddd;
+  border-radius: 0 0 8px 8px;
+  background-color: #469e51;
+  box-shadow: 2px 2px 5px #ccc, -2px -2px 5px #fff;
+  outline: none;
+  animation: pulse 1s linear infinite;
+}
+
+.button:hover {
+  background-color: #469e51;
+  box-shadow: inset 2px 2px 5px #ccc, inset -2px -2px 5px #fff;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
 }

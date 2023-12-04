@@ -1,21 +1,84 @@
+// vars
 
-function handleInput(currentInput) {
-    const maxLength = parseInt(currentInput.maxLength, 10);
-    const currentInputIndex = Array.from(currentInput.parentNode.children).indexOf(currentInput);
+const input = document.getElementById("input");
+const triesTag = document.getElementById("tries");
 
-    if (currentInput.value.length === maxLength) {
-        const nextInput = currentInputIndex < currentInput.parentNode.children.length - 1
-            ? currentInput.parentNode.children[currentInputIndex + 1].focus()
-            : currentInput.blur();
+console.log(guesses);
+
+
+triesTag.innerText = tries > 0 ? tries : "you lost";
+
+const handleInput = (e) => {
+  e.value = e.value.replace(/[^0-9]/g, "");
+  guess = e.value;
+};
+
+// checking if the number is correct
+
+const checkNumber = () => {
+  const input = document.querySelector("#input").value;
+  if (input === digit) {
+    // document.querySelector("#tries").innerText = "Correct!"; 
+    wonFun()
+  } else {
+    let digitFound = 0;
+    let correctPosition = 0;
+
+    let dubHandling = Array(10).fill(0);
+
+    for (let i = 0; i < 4; i++) {
+      if (digit.includes(input[i])) {
+        digitFound++;
+        dubHandling[input[i]]++;
+      }
     }
-}
 
-function handleBackspace(currentInput) {
-    const currentInputIndex = Array.from(currentInput.parentNode.children).indexOf(currentInput);
-
-    if (event.key === 'Backspace' && currentInput.value.length === 0) {
-        const prevInput = currentInputIndex > 0
-            ? currentInput.parentNode.children[currentInputIndex - 1].focus()
-            : currentInput.focus();
+    for (let i = 0; i < 4; i++) {
+      if (digit[i] === input[i]) {
+        correctPosition++;
+      }
     }
-}
+
+    for (let i = 0; i < 10; i++) {
+      if (dubHandling[i] > 1) {
+        digitFound -= dubHandling[i] - 1;
+      }
+    }
+
+    document.querySelector(
+      "#resultDigits"
+    ).innerHTML = `${digitFound} digit found`;
+    document.querySelector(
+      "#resultLocation"
+    ).innerHTML = `${correctPosition} digit in correct position`;
+  }
+};
+
+const handleClick = () => {
+  // store at local storage the random digit and the tries
+  if (guess === undefined || guess.length < 4) {
+    return;
+  }
+
+  if (guesses.includes(guess)) {
+    alert("You already tried this number");
+    tries++;
+  }
+  guesses.push(guess);
+  localStorage.setItem("guesses", guesses);
+  tries--;
+  if (tries > 0) {
+    checkNumber();
+    triesTag.innerText = tries;
+  } else {
+    triesTag.innerText = "you lost";
+    loseFun();
+  }
+  localStorage.setItem("digit", digit);
+  localStorage.setItem("tries", tries);
+};
+
+// Event listeners
+handleFormSubmit = (e) => {
+  e.preventDefault();
+};

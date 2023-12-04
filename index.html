@@ -1,19 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="state.css" />
+  </head>
+  <body>
+    <main class="main">
+      <div class="margin">&nbsp;</div>
+      <h1 id="tries">&nbsp;</h1>
+      <h5 id="resultDigits">&nbsp;</h5>
+      <h5 id="resultLocation">&nbsp;</h5>
+      <div class="container">
+        <form onsubmit="handleFormSubmit(event)" class="form">
+          <input
+            required
+            autocomplete="off"
+            class="input"
+            id="input"
+            type="text"
+            maxlength="4"
+            oninput="handleInput(this)"
+          />
 
-<div class="container">
-    <input class="digit-input" type="text" maxlength="1" oninput="handleInput(this)" onkeydown="handleBackspace(this)">
-    <input class="digit-input" type="text" maxlength="1" oninput="handleInput(this)" onkeydown="handleBackspace(this)">
-    <input class="digit-input" type="text" maxlength="1" oninput="handleInput(this)" onkeydown="handleBackspace(this)">
-    <input class="digit-input" type="text" maxlength="1" oninput="handleInput(this)" onkeydown="handleBackspace(this)">
-</div>
+          <button class="button" onclick="handleClick()">Guess</button>
+        </form>
+      </div>
+    </main>
 
- 
-</body>
+    <div id="window" class="start">
+      <h1 class="start__title" draggable="false"></h1>
+      <h4
+        id="allTries"
+        style="
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          word-break: break-word;
+          width: 50ch;
+        "
+      ></h4>
+    </div>
+
+    <script src="digit.js"></script>
+    <script src="game.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
