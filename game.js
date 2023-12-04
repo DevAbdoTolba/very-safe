@@ -15,26 +15,32 @@ function handelEvent() {
   h1.innerHTML = "";
   h1.classList.add("hide");
 }
-
-if (won) {
-  h1.classList.remove("hide");
-  console.log("won");
-  divWindow.classList.add("won");
-  h1.innerHTML = `You won <br /> 🎉 <br /> only ${10 - tries}`;
-} else if (lose) {
-  h1.classList.remove("hide");
-  console.log("lose");
-  divWindow.classList.add("lose");
-  h1.innerHTML = `You lose <br /> 🙈 <br /> ${digit}`;
-  //   h6.innerHTML = `Tries: ${guesses}`;
-} else if (start) {
-  console.log("started");
-
+if (won || lose || start) {
   divWindow.removeEventListener("click", handelEvent);
   divWindow.classList.remove("start");
 
   h1.innerHTML = "";
-  h1.classList.add("hide");
+
+  if (won) {
+    h1.classList.remove("hide");
+    console.log("won");
+    divWindow.classList.add("won");
+    h1.innerHTML = `You won <br /> 🎉 <br /> only ${10 - tries}`;
+  } else if (lose) {
+    h1.classList.remove("hide");
+    console.log("lose");
+    divWindow.classList.add("lose");
+    h1.innerHTML = `You lose <br /> 🙈 <br /> ${digit}`;
+    //   h6.innerHTML = `Tries: ${guesses}`;
+  } else if (start) {
+    console.log("started");
+
+    divWindow.removeEventListener("click", handelEvent);
+    divWindow.classList.remove("start");
+
+    h1.innerHTML = "";
+    h1.classList.add("hide");
+  }
 }
 
 function loseFun() {
