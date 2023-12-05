@@ -105,7 +105,12 @@ div.starting {
     color: #000;
   }
 }
-
+.after::before {
+  content: var(--after-content);
+  top: 0;
+  left: 50%;
+  
+}
 .hide {
   visibility: hidden;
 }
