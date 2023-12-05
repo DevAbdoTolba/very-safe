@@ -46,19 +46,19 @@ digit =
 
 // // detect incognito
 
-if ("storage" in navigator && "estimate" in navigator.storage) {
-  navigator.storage
-    .estimate()
-    .then((quota) => {
-      console.log(quota.quota);
-      if (quota.quota.toString().length === 9) {
-        alert("You are in incognito mode. The game will not work 👀");
-        window.location.reload();
-      }
-    })
-    .catch((error) => {
-      console.error("Error getting storage estimate:", error);
-    });
-} else {
-  console.warn("Storage estimate not supported in this browser.");
-}
+// if ("storage" in navigator && "estimate" in navigator.storage) {
+//   navigator.storage
+//     .estimate()
+//     .then((quota) => {
+//       console.log(quota.quota);
+//       if (quota.quota.toString().length === 9) {
+//         alert("You are in incognito mode. The game will not work 👀");
+//         window.location.reload();
+//       }
+//     })
+//     .catch((error) => {
+//       console.error("Error getting storage estimate:", error);
+//     });
+// } else {
+//   console.warn("Storage estimate not supported in this browser.");
+// }
