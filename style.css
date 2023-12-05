@@ -4,6 +4,7 @@
   font-family: "Courier New", Courier, monospace;
   font-weight: bolder;
   text-align: center;
+  color: #fff;
 }
 
 ::selection {
@@ -22,7 +23,7 @@
   align-items: center;
   height: 100vh;
   gap: 5vh;
-  background-color: #f0f0f0;
+  background-color: #0f0f0f;
 }
 
 .form {
@@ -35,10 +36,10 @@
   height: 40px;
   font-size: 18px;
   letter-spacing: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #222;
   border-radius: 8px 8px 0 0;
-  background-color: #f0f0f0;
-  box-shadow: 2px 2px 5px #ccc, -2px -2px 5px #fff;
+  background-color: #0f0f0f;
+  box-shadow: 0 0 5px #555, -2px -2px 5px #000;
   outline: none;
   z-index: 100;
 }
@@ -49,29 +50,29 @@
   font-size: 18px;
   color: #000;
   letter-spacing: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #222;
   border-radius: 0 0 8px 8px;
   background-color: #469e51;
-  box-shadow: 2px 2px 5px #ccc, -2px -2px 5px #fff;
+  box-shadow: 2px 2px 5px #555, -2px -2px 5px #000;
   outline: none;
   animation: pulse 1s linear infinite;
 }
 
 .button:hover {
   background-color: #469e51;
-  box-shadow: inset 2px 2px 5px #ccc, inset -2px -2px 5px #fff;
+  box-shadow: inset 2px 2px 5px #333, inset -2px -2px 5px #000;
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 0 rgba(255,255,255, 0.5);
   }
 
   70% {
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 10px rgba(255,255,255, 0);
   }
 
   100% {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(255,255,255, 0);
   }
 }
