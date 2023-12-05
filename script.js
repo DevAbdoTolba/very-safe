@@ -82,29 +82,4 @@ handleFormSubmit = (e) => {
   e.preventDefault();
 };
 
-// Handel incognito
-document.addEventListener("DOMContentLoaded", function () {
-  if (isIncognito()) {
-    alert("Please disable incognito mode to access this website.");
-  }
-});
-
-function isIncognito() {
-  try {
-    const fs = window.RequestFileSystem || window.webkitRequestFileSystem;
-    if (!fs) return false; // Not available in all browsers
-    fs(
-      window.TEMPORARY,
-      1,
-      function () {},
-      function () {
-        alert(
-          "Incognito mode detected. Please disable incognito mode to access this website."
-        );
-      }
-    );
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
+ 
