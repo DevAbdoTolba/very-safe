@@ -24,8 +24,6 @@ let games = [
   "kio9jklnhuiy7hbjgyutgfvhhftrfgcdrte4dfrs34w", // 5
 ];
 
-let playedGames = localStorage.getItem("playedGames") || [];
-
 let gameFail =
   game === null ||
   !(
@@ -49,6 +47,9 @@ let gameFail =
 
 divWindow.addEventListener("click", handelEvent);
 h1.innerHTML = "Start";
+h6.innerHTML = "Please raise the volume up to 100%";
+h6.style.zIndex = "100";
+h6.style.color = "red";
 
 function handelEvent() {
   localStorage.setItem("start", true);
@@ -69,6 +70,9 @@ if (won || lose || start || gameFail) {
   } else if (won || localStorage.getItem(game).split(",")[1] === "w") {
     h1.classList.remove("hide");
     console.log("won");
+    // play sound
+    let audio = new Audio("won.wav");
+    audio.play();
     divWindow.classList.add("won");
     h1.innerHTML = `You won <br /> 🎉 `;
     h6.innerHTML =
@@ -116,5 +120,33 @@ function loseFun() {
 function wonFun() {
   localStorage.setItem("won", true);
   localStorage.setItem(game, [localStorage.getItem(game), "w", tries]);
-  window.location.reload();
+
+  divWindow.classList.remove("starting");
+  divWindow.classList.remove("start");
+  h1.classList.remove("hide");
+  console.log("won");
+  // play sound
+
+  divWindow.classList.add("won");
+  h1.innerHTML = `You won <br /> 🎉 `;
+  h6.innerHTML =
+    "only " + (10 - localStorage.getItem(game).split(",")[2]) + " tries";
+  // set h1 after content to localStorage.getItem(game)
+  h1.classList.add("after");
+  h1.style.setProperty(
+    "--after-content",
+    '"Game ' + localStorage.getItem(game).split(",")[0] + ' "'
+  );
+  let audio = new Audio("won.wav");
+  setTimeout(() => {
+    audio.play();
+    setTimeout(() => {
+      audio.play();
+      setTimeout(() => {
+        audio.play();
+      }, 1000);
+    }, 1000);
+  }, 1000);
+
+  // window.location.reload();
 }
