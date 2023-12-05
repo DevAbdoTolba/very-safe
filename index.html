@@ -16,11 +16,14 @@
         <form onsubmit="handleFormSubmit(event)" class="form">
           <input
             required
+            placeholder="x x x x"
             autocomplete="off"
             class="input"
             id="input"
             type="text"
             maxlength="4"
+            pattern=".{5,}"
+            title="At least 4 digits"
             oninput="handleInput(this)"
           />
 
