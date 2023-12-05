@@ -82,7 +82,7 @@ div.starting {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #aa00007c;
+  background-color: #aa0000;
   top: 0;
   left: 0;
   width: 100%;
@@ -95,7 +95,7 @@ div.starting {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #00ff007c;
+  background-color: #00ff00;
   top: 0;
   left: 0;
   width: 100%;
