@@ -40,6 +40,6 @@ function replaceRepeatedDigits(digit) {
 
 digit =
   localStorage.getItem("digit") ||
-  replaceRepeatedDigits(Math.floor(getRandomArbitrary(2500, 9200))); // Yes it is random :)
+  replaceRepeatedDigits(Math.floor(getRandomArbitrary(1000, 9200))); // Yes it is random :)
 
-console.log(digit);
+// console.log(digit);

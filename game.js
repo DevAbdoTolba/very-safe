@@ -66,23 +66,31 @@ if (won || lose || start || gameFail) {
     h1.innerHTML = "Game not found";
     h1.classList.remove("hide");
     divWindow.classList.add("lose");
-  } else if (won) {
+  } else if (won || localStorage.getItem(game).split(",")[1] === "w") {
     h1.classList.remove("hide");
     console.log("won");
     divWindow.classList.add("won");
     h1.innerHTML = `You won <br /> 🎉 `;
-    h6.innerHTML = "only " + (10 - tries) + " tries";
+    h6.innerHTML =
+      "only " + (10 - localStorage.getItem(game).split(",")[2]) + " tries";
     // set h1 after content to localStorage.getItem(game)
     h1.classList.add("after");
     h1.style.setProperty(
       "--after-content",
-      '"Game ' + localStorage.getItem(game) + ' "'
+      '"Game ' + localStorage.getItem(game).split(",")[0] + ' "'
     );
-  } else if (lose) {
+  } else if (lose || localStorage.getItem(game).split(",")[1] === "l") {
+    h1.classList.add("after");
+    h1.style.setProperty(
+      "--after-content",
+      '"Game ' + localStorage.getItem(game).split(",")[0] + ' "'
+    );
     h1.classList.remove("hide");
     console.log("lose");
     divWindow.classList.add("lose");
-    h1.innerHTML = `You lose <br /> 🙈 <br /> ${digit}`;
+    h1.innerHTML = `You lose <br /> 🙈 <br /> ${
+      localStorage.getItem(game).split(",")[2]
+    }`;
     //   h6.innerHTML = `Tries: ${guesses}`;
   } else if (start) {
     console.log("started");
@@ -92,15 +100,21 @@ if (won || lose || start || gameFail) {
 
     h1.innerHTML = "";
     h1.classList.add("hide");
+  } else {
+    h1.innerHTML = "There was an error please refresh";
+    h1.classList.remove("hide");
+    divWindow.classList.add("lose");
   }
 }
 
 function loseFun() {
   localStorage.setItem("lose", true);
+  localStorage.setItem(game, [localStorage.getItem(game), "l", digit]);
   window.location.reload();
 }
 
 function wonFun() {
   localStorage.setItem("won", true);
+  localStorage.setItem(game, [localStorage.getItem(game), "w", tries]);
   window.location.reload();
 }
