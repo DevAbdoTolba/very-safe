@@ -123,6 +123,7 @@ function wonFun() {
 
   divWindow.classList.remove("starting");
   divWindow.classList.remove("start");
+  divWindow.removeEventListener("click", handelEvent);
   h1.classList.remove("hide");
   console.log("won");
   // play sound
