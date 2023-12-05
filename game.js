@@ -67,6 +67,7 @@ if (won || lose || start || gameFail) {
     h1.innerHTML = "Game not found";
     h1.classList.remove("hide");
     divWindow.classList.add("lose");
+    h6.innerHTML = "";
   } else if (won || localStorage.getItem(game).split(",")[1] === "w") {
     h1.classList.remove("hide");
     console.log("won");
@@ -95,7 +96,7 @@ if (won || lose || start || gameFail) {
     h1.innerHTML = `You lose <br /> 🙈 <br /> ${
       localStorage.getItem(game).split(",")[2]
     }`;
-    //   h6.innerHTML = `Tries: ${guesses}`;
+      h6.innerHTML = ``;
   } else if (start) {
     console.log("started");
 
@@ -108,6 +109,7 @@ if (won || lose || start || gameFail) {
     h1.innerHTML = "There was an error please refresh";
     h1.classList.remove("hide");
     divWindow.classList.add("lose");
+    h6.innerHTML = "";
   }
 }
 
