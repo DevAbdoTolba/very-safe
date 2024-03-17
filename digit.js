@@ -3,7 +3,7 @@ let digit = "";
 let guess;
 
 let tries;
-tries = localStorage.getItem("tries") || 15;
+tries = localStorage.getItem("tries") || 7;
 
 let guesses;
 try {
