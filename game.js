@@ -17,11 +17,11 @@ start = localStorage.getItem("start") || false;
 // games logic
 
 let games = [
-  "rft5t6y7uhjbgyut67ihkjbgyu7iujoknbhgyuhijkn", // 1
-  "ihuiy8oi9jlhukyigi7i8uhjgvfcrdtfyrdtges4tde", // 2
-  "98765rer4tsdfrcgvhtyuhijoklmjnjbhvgcfdrtfyi", // 3
-  "98u9y7t6ur5ye43w2esrdtfygu787u9i0opkljnbhvg", // 4
-  "kio9jklnhuiy7hbjgyutgfvhhftrfgcdrte4dfrs34w", // 5
+  "rft5t6y7uhjbgyut67ihkjb00u7iujoknbhgyuhijkn", // 1
+  "ihuiy8oi9jlhukyigi7i800jgvfcrdtfyrdtges4tde", // 2
+  "98765rer4tsdfrcgvhtyu00joklmjnjbhvgcfdrtfyi", // 3
+  "98u9y7t6ur5ye43w2es00tfygu787u9i0opkljnbhvg", // 4
+  "kio9jklnhuiy7hbjgyutg00hhftrfgcdrte4dfrs34w", // 5
 ];
 
 let gameFail =
