@@ -65,9 +65,10 @@ const handleClick = () => {
   }
   guesses.push(guess);
   localStorage.setItem("guesses", guesses);
-  tries--;
+  
   if (tries > 0) {
     checkNumber();
+    tries--;
     triesTag.innerText = tries;
   } else {
     triesTag.innerText = "you lost";
